@@ -9,12 +9,13 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello {{ controller_name }}</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/the_salmon/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/the_salmon/templates/home/index.html.twig</code></li>
-    </ul>
+    {% if not app.user %}
+        <a href="{{ path('app_register') }}">Registration</a>
+    {% endif %}
+    <br>
+    <a href="{{ app.user ? 'logout' : 'login' }}">{{ app.user ? 'Logout' : 'Login' }}</a>
+
 </div>
 {% endblock %}
