@@ -14,8 +14,14 @@
     {% if not app.user %}
         <a href="{{ path('app_register') }}">Registration</a>
     {% endif %}
+    
     <br>
     <a href="{{ app.user ? 'logout' : 'login' }}">{{ app.user ? 'Logout' : 'Login' }}</a>
+    
+    {% if app.user %}
+        <br>
+        <a href="{{ path('app_income_add') }}">Add income</a>
+    {% endif %}
 
 </div>
 {% endblock %}
