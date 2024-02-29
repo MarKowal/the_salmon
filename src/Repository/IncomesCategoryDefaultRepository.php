@@ -45,4 +45,14 @@ class IncomesCategoryDefaultRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    
+        public function getAllIncomesCategoryDefault(): array
+        {
+            $qb = $this->createQueryBuilder('category')
+                ->orderBy('category.name', 'ASC');
+            $query = $qb->getQuery();
+            return $query->execute();
+        }
+
+
 }

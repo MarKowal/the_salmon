@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+//use App\Entity\IncomesCategoryDefault;
 
 class RegistrationController extends AbstractController
 {
@@ -33,6 +34,8 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
+          //  $this->setIncomesCategoryDefault($entityManager);
+
             return $this->redirectToRoute('app_home');
         }
 
@@ -40,4 +43,23 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+    /*
+    private function setIncomesCategoryDefault(EntityManagerInterface $entityManager) {
+        
+        $incomeDefault1 = new IncomesCategoryDefault();
+        $incomeDefault1->setName('salary');
+        $entityManager->persist($incomeDefault1);
+
+        $incomeDefault2 = new IncomesCategoryDefault();
+        $incomeDefault2->setName('loan');
+        $entityManager->persist($incomeDefault2);
+
+        $incomeDefault3 = new IncomesCategoryDefault();
+        $incomeDefault3->setName('donation');
+        $entityManager->persist($incomeDefault3);
+
+        $entityManager->flush();
+    }*/
+
+
 }

@@ -8,7 +8,6 @@
 
 <p>Here you can add your income to the database:</p>
 
-<!-- poniżej trzeba zrobić form jak przy rejestracji -->
 <ul>
     <li>amount</li>
     <li>date</li>
@@ -16,6 +15,16 @@
     <li>comment</li>
 </ul>
 
+{{ form_errors(addIncomeForm) }}
+
+{{ form_start(addIncomeForm) }}
+    {{ form_row(addIncomeForm.amount, { label: 'Amount' }) }}
+    {{ form_row(addIncomeForm.date_of_income, { label: 'Date of income' }) }}
+    {{ form_row(addIncomeForm.category, { label: 'Category' }) }}
+    {{ form_row(addIncomeForm.income_comment, { label: 'Comment' }) }}
+    
+    <button type="submit" class="btn">Add income</button>
+{{ form_end(addIncomeForm) }}
 
 
 {% endblock %}
